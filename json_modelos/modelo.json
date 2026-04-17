@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "proyecto": "Gestion del conocimiento y procesos",
+    "area": "Ingenieria de Sistemas",
+    "version": "1.0"
+  },
+
+  "tipo_modelo": "Representacion de conocimiento organizacional",
+
+  "conocimiento": {
+    "tipos": {
+      "tacito": {
+        "descripcion": "Basado en experiencia individual",
+        "caracteristicas": [
+          "Subjetivo",
+          "Difícil de formalizar",
+          "Transferencia por interacción",
+          "Alto valor contextual"
+        ]
+      },
+      "explicito": {
+        "descripcion": "Documentado y estructurado",
+        "caracteristicas": [
+          "Formal",
+          "Almacenamiento sencillo",
+          "Fácil distribución",
+          "Reutilizable"
+        ]
+      }
+    },
+    "relacion": {
+      "transformacion": [
+        "Identificacion",
+        "Extraccion",
+        "Articulacion",
+        "Codificacion",
+        "Validacion",
+        "Difusion"
+      ]
+    }
+  },
+
+  "procesos": {
+    "tipos": {
+      "estrategicos": "Direccion y planeacion",
+      "negocio": "Generacion directa de valor",
+      "apoyo": "Soporte operativo"
+    },
+    "objetivos": [
+      "Generar valor",
+      "Cumplir metas organizacionales",
+      "Ser medibles",
+      "Optimizar desempeño"
+    ],
+    "limites": {
+      "entrada": "Evento inicial",
+      "salida": "Resultado generado"
+    },
+    "beneficios": [
+      "Eficiencia",
+      "Control",
+      "Estandarizacion",
+      "Mejora continua",
+      "Reduccion de errores"
+    ]
+  },
+
+  "estructura_procesos": {
+    "jerarquia": [
+      "proceso",
+      "actividad",
+      "tarea",
+      "procedimiento"
+    ],
+    "elementos": {
+      "actividad": "Conjunto de tareas relacionadas",
+      "tarea": "Unidad minima ejecutable",
+      "procedimiento": "Guia de ejecucion",
+      "regla": "Condicion de control",
+      "norma": "Marco regulatorio"
+    }
+  },
+
+  "bpmn": {
+    "eventos": {
+      "inicio": "Dispara el flujo",
+      "intermedio": "Modifica el proceso",
+      "fin": "Finaliza el flujo"
+    },
+    "actividades": [
+      "Usuario",
+      "Manual",
+      "Script",
+      "Servicio",
+      "Envio",
+      "Recepcion"
+    ],
+    "compuertas": {
+      "xor": "Decision unica",
+      "and": "Paralelismo",
+      "or": "Decision multiple",
+      "eventos": "Dependiente de eventos"
+    },
+    "conexiones": {
+      "flujo_secuencia": "Control del orden de actividades",
+      "flujo_mensaje": "Interaccion entre participantes",
+      "asociacion": "Relacion entre elementos"
+    }
+  },
+
+  "relaciones": [
+    {
+      "origen": "conocimiento.tipos.tacito",
+      "destino": "conocimiento.tipos.explicito",
+      "tipo": "transformacion"
+    },
+    {
+      "origen": "procesos",
+      "destino": "bpmn",
+      "tipo": "modelado"
+    },
+    {
+      "origen": "procesos",
+      "destino": "conocimiento",
+      "tipo": "retroalimentacion"
+    },
+    {
+      "origen": "procesos",
+      "destino": "estructura_procesos",
+      "tipo": "descomposicion"
+    }
+  ]
+}
