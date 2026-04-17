@@ -1,0 +1,230 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+% CARGA ESTA LIBRERÍA PARA EVITAR EL ERROR
+\usetikzlibrary{babel, positioning} 
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\setstretch{1.5}
+
+\title{Gestión del Conocimiento en Ingeniería de Sistemas}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Gestión del Conocimiento}
+
+\subsection{Definición}
+La gestión del conocimiento (Knowledge Management, KM) es un enfoque sistemático mediante el cual las organizaciones crean, capturan, organizan, comparten y utilizan el conocimiento con el propósito de mejorar su desempeño. Este proceso integra personas, tecnología y procesos, permitiendo aprovechar tanto el conocimiento individual como el colectivo.
+
+Desde una perspectiva académica, puede definirse como un conjunto de prácticas orientadas a identificar, estructurar y difundir el conocimiento dentro de una organización para generar valor y ventaja competitiva.
+
+\subsection{Importancia en las organizaciones}
+La gestión del conocimiento es fundamental debido a su impacto directo en la eficiencia organizacional. Entre sus principales beneficios se destacan:
+
+\begin{itemize}
+    \item Previene la pérdida de conocimiento crítico.
+    \item Mejora la toma de decisiones mediante información estructurada.
+    \item Fomenta la innovación al facilitar la integración de ideas.
+    \item Optimiza procesos, reduciendo errores y tiempos.
+    \item Promueve el aprendizaje organizacional continuo.
+\end{itemize}
+
+En ingeniería de sistemas, estos beneficios se reflejan en mejores prácticas de desarrollo, documentación eficiente y reutilización de soluciones.
+
+\subsection{Objetivo principal}
+El objetivo central de la gestión del conocimiento es transformar el conocimiento en un activo estratégico reutilizable, compartido y aplicable para mejorar el rendimiento organizacional. Esto implica garantizar que la información sea accesible, comprensible y útil.
+
+\section{Conocimiento Tácito vs Conocimiento Explícito}
+
+\subsection{Conocimiento tácito}
+El conocimiento tácito reside en la mente de las personas y se basa en experiencias, habilidades y percepciones. Es difícil de formalizar y transmitir.
+
+\textbf{Ejemplo:} Un programador senior que depura errores complejos sin seguir un procedimiento documentado.
+
+\subsection{Conocimiento explícito}
+El conocimiento explícito puede ser documentado, estructurado y compartido fácilmente mediante diversos medios como manuales, bases de datos o diagramas.
+
+\textbf{Ejemplo:} Documentación técnica de una API.
+
+\subsection{Características principales}
+
+\subsubsection{Conocimiento tácito}
+\begin{itemize}
+    \item Personal y subjetivo
+    \item Difícil de formalizar
+    \item Basado en la experiencia
+    \item Transmisión mediante interacción directa
+\end{itemize}
+
+\subsubsection{Conocimiento explícito}
+\begin{itemize}
+    \item Formal y estructurado
+    \item Fácil de almacenar
+    \item Independiente del individuo
+    \item Documentado en medios físicos o digitales
+\end{itemize}
+
+\subsection{Ejemplos comparativos}
+
+\begin{center}
+\begin{tabular}{|m{4cm}|m{4cm}|m{4cm}|}
+\hline
+\textbf{Contexto} & \textbf{Conocimiento tácito} & \textbf{Conocimiento explícito} \\
+\hline
+Software & Intuición para optimizar código & Estándares de programación \\
+\hline
+Medicina & Experiencia del cirujano & Protocolos médicos \\
+\hline
+Educación & Habilidad para enseñar & Plan de estudios \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Comparación conceptual}
+La diferencia fundamental radica en su almacenamiento y transmisión:
+
+\begin{itemize}
+    \item El conocimiento tácito reside en las personas.
+    \item El conocimiento explícito reside en los sistemas.
+    \item El tácito es difícil de capturar pero altamente valioso.
+    \item El explícito es fácil de compartir pero puede perder contexto.
+\end{itemize}
+
+\section{Transformación del Conocimiento}
+
+\subsection{Descripción del proceso}
+La transformación del conocimiento tácito en explícito implica convertir experiencias individuales en información estructurada. Este proceso es fundamental en modelos como el SECI.
+
+\subsection{Etapas del proceso}
+
+\begin{enumerate}
+    \item Identificación del conocimiento crítico
+    \item Extracción mediante entrevistas u observación
+    \item Articulación en conceptos
+    \item Codificación en documentos
+    \item Validación
+    \item Almacenamiento y difusión
+\end{enumerate}
+
+\subsection{Diagrama del proceso}
+
+\begin{center}
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[node distance=1.5cm, every node/.style={draw, rectangle, rounded corners, align=center, font=\small}]
+\node (id) {Identificación};
+\node (ex) [right=of id] {Extracción};
+\node (ar) [right=of ex] {Articulación};
+\node (co) [right=of ar] {Codificación};
+\node (va) [right=of co] {Validación};
+\node (al) [right=of va] {Almacenamiento};
+
+\draw[->] (id) -- (ex);
+\draw[->] (ex) -- (ar);
+\draw[->] (ar) -- (co);
+\draw[->] (co) -- (va);
+\draw[->] (va) -- (al);
+\end{tikzpicture}%
+}
+\end{center}
+
+\subsection{Métodos utilizados}
+\begin{itemize}
+    \item Entrevistas estructuradas
+    \item Lecciones aprendidas
+    \item Documentación técnica
+    \item Videos y tutoriales
+    \item Modelado de procesos (BPMN)
+    \item Sistemas documentales
+\end{itemize}
+
+\subsection{Ejemplo aplicado}
+En una empresa de software, el conocimiento de un desarrollador senior es documentado mediante entrevistas y diagramas, permitiendo su reutilización por otros miembros del equipo.
+
+\section{Ciclo de Gestión del Conocimiento}
+
+\subsection{Descripción general}
+El ciclo de gestión del conocimiento describe las etapas mediante las cuales el conocimiento es generado, almacenado, compartido y utilizado dentro de una organización. Este proceso es continuo y dinámico.
+
+\subsection{Etapas del ciclo}
+
+\subsubsection{Captura o creación}
+Se genera conocimiento a partir de la experiencia, investigación e interacción.
+
+\subsubsection{Almacenamiento}
+Se organiza en repositorios como bases de datos o sistemas documentales.
+
+\subsubsection{Distribución}
+Se comparte mediante intranets, capacitaciones y plataformas colaborativas.
+
+\subsubsection{Uso}
+Se aplica en la resolución de problemas y toma de decisiones.
+
+\subsubsection{Retroalimentación}
+Se evalúa y mejora el conocimiento.
+
+\subsection{Diagrama del ciclo}
+\begin{center}
+\begin{tikzpicture}[
+    node distance=2.5cm and 3cm, 
+    every node/.style={
+        draw, 
+        circle, 
+        align=center, 
+        minimum size=2.2cm, 
+        font=\footnotesize,
+        fill=white
+    },
+    >=stealth, 
+    thick
+]
+
+% 1. Definición única de todos los nodos
+\node (c1) {Captura /\\ Creación};
+\node (c2) [right=of c1] {Almacena-\\miento};
+\node (c3) [below=of c2] {Distribución};
+\node (c4) [below=of c1] {Retroali-\\mentación}; % Posicionado bajo c1 para cerrar el cuadro
+\node (c5) [left=of c3] {Uso}; % Posicionado a la izquierda de c3 (bajo c4)
+
+% 2. Dibujo de las flechas siguiendo el flujo lógico
+\draw[->] (c1) -- (c2);
+\draw[->] (c2) -- (c3);
+\draw[->] (c3) -- (c5);
+\draw[->] (c5) -- (c4);
+\draw[->] (c4) -- (c1);
+
+\end{tikzpicture}
+\end{center}
+
+
+
+\subsection{Relación entre etapas}
+Las etapas están interconectadas formando un ciclo continuo que impulsa el aprendizaje organizacional y la mejora constante.
+
+\subsection{Ejemplo práctico}
+En soporte técnico:
+\begin{enumerate}
+    \item Se resuelve un problema complejo.
+    \item Se documenta la solución.
+    \item Se comparte con el equipo.
+    \item Se reutiliza en casos similares.
+    \item Se mejora con nuevas experiencias.
+\end{enumerate}
+
+\section{Conclusión}
+La gestión del conocimiento es un componente esencial en la ingeniería de sistemas, ya que permite convertir experiencias individuales en activos organizacionales reutilizables. La integración del conocimiento tácito y explícito, junto con su adecuada gestión mediante ciclos estructurados, favorece la innovación, la eficiencia y la sostenibilidad organizacional.
+
+Este enfoque es directamente aplicable al modelado de procesos, permitiendo identificar flujos de información, actores clave y puntos críticos en los que el conocimiento es generado y utilizado.
+
+\end{document}
