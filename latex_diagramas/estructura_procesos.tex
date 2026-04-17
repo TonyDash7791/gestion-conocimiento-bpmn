@@ -1,0 +1,210 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, babel} % Agregamos shapes y babel
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+\geometry{margin=2.5cm}
+\setstretch{1.5}
+
+% Configuración de TikZ
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+
+\title{Gestión y Estructura de Procesos Organizacionales\\
+\large Enfoque desde la Ingeniería de Sistemas}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Estructura de los Procesos en una Organización}
+
+\subsection{Concepto de Estructura de Procesos}
+La estructura de procesos en una organización hace referencia a la forma en que los diferentes procesos se organizan, jerarquizan e interrelacionan para cumplir los objetivos estratégicos. Esta estructura permite comprender el flujo de trabajo desde la toma de decisiones hasta la generación de valor para el cliente.
+
+En ingeniería de procesos, esta organización suele representarse mediante mapas de procesos, los cuales muestran los distintos niveles organizacionales y su interacción.
+
+\subsection{Organización Jerárquica de los Procesos}
+Generalmente, los procesos empresariales se estructuran en tres niveles:
+
+\begin{itemize}
+    \item \textbf{Procesos estratégicos:} Definen la dirección, planificación y control de la organización.
+    \item \textbf{Procesos misionales:} Ejecutan las actividades principales del negocio.
+    \item \textbf{Procesos de apoyo:} Proveen recursos y soporte para el funcionamiento organizacional.
+\end{itemize}
+
+Estos niveles funcionan como un sistema integrado, no como estructuras aisladas.
+
+\subsection{Relación entre los Tipos de Procesos}
+Existe una interdependencia clara entre los distintos tipos de procesos:
+
+\begin{itemize}
+    \item Los procesos estratégicos orientan a los misionales.
+    \item Los procesos misionales dependen del soporte de los procesos de apoyo.
+\end{itemize}
+
+\subsubsection{Ejemplo Aplicado}
+Una decisión estratégica como la expansión digital impacta directamente en los procesos de ventas y requiere soporte tecnológico para su implementación.
+
+\subsection{Diagrama de Estructura de Procesos}
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=2cm,
+    every node/.style={draw, rectangle, rounded corners, align=center, minimum width=3cm, minimum height=1cm}
+]
+
+\node (estrategicos) {Procesos Estratégicos};
+\node (misionales) [below of=estrategicos] {Procesos Misionales};
+\node (apoyo) [below of=misionales] {Procesos de Apoyo};
+
+\draw[->] (estrategicos) -- (misionales);
+\draw[->] (apoyo) -- (misionales);
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Conexión entre Procesos}
+Los procesos organizacionales están conectados mediante flujos de información, recursos y decisiones. La salida de un proceso puede convertirse en la entrada de otro.
+
+\subsubsection{Ejemplo de Flujo}
+\begin{center}
+\begin{tikzpicture}[
+    node distance=3cm,
+    every node/.style={draw, rectangle, rounded corners, align=center}
+]
+
+\node (ventas) {Ventas};
+\node (logistica) [right of=ventas] {Logística};
+\node (finanzas) [right of=logistica] {Finanzas};
+
+\draw[->] (ventas) -- (logistica);
+\draw[->] (logistica) -- (finanzas);
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Ejemplo Aplicado: Empresa de Software}
+\begin{itemize}
+    \item \textbf{Estratégicos:} planificación tecnológica, innovación.
+    \item \textbf{Misionales:} desarrollo e implementación de software.
+    \item \textbf{Apoyo:} recursos humanos, infraestructura, administración.
+\end{itemize}
+
+\section{Segmentación de Procesos}
+
+\subsection{Definición}
+La segmentación de procesos consiste en dividir un proceso complejo en partes más pequeñas (subprocesos), facilitando su análisis, control y mejora.
+
+\subsection{Importancia}
+La segmentación permite:
+
+\begin{itemize}
+    \item Identificar puntos críticos
+    \item Detectar cuellos de botella
+    \item Mejorar la asignación de responsabilidades
+    \item Facilitar el modelamiento en BPMN
+\end{itemize}
+
+\subsection{Comprensión del Proceso}
+Dividir un proceso permite analizar cada etapa de forma independiente sin perder la visión global, facilitando la documentación y estandarización.
+
+\subsection{Ejemplo Práctico: Gestión de Pedidos}
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=2.5cm,
+    every node/.style={draw, rectangle, rounded corners, align=center}
+]
+
+\node (r1) {Recepción};
+\node (r2) [right of=r1] {Validación};
+\node (r3) [right of=r2] {Pago};
+\node (r4) [right of=r3] {Preparación};
+\node (r5) [right of=r4] {Despacho};
+\node (r6) [right of=r5] {Entrega};
+
+\draw[->] (r1) -- (r2);
+\draw[->] (r2) -- (r3);
+\draw[->] (r3) -- (r4);
+\draw[->] (r4) -- (r5);
+\draw[->] (r5) -- (r6);
+
+\end{tikzpicture}
+\end{center}
+
+\section{Procesos, Eficiencia y Mejora Continua}
+
+\subsection{Procesos y Eficiencia Organizacional}
+Los procesos bien definidos permiten mejorar la eficiencia organizacional al establecer:
+
+\begin{itemize}
+    \item Secuencia de actividades
+    \item Uso óptimo de recursos
+    \item Reducción de errores
+\end{itemize}
+
+\subsection{Estandarización de Procesos}
+La estandarización implica definir procedimientos uniformes que aseguren consistencia en los resultados.
+
+\begin{itemize}
+    \item Reduce errores humanos
+    \item Facilita la capacitación
+    \item Mejora la calidad de la información
+\end{itemize}
+
+\subsection{Mejora Continua}
+La mejora continua busca optimizar procesos de forma constante mediante evaluación y ajustes.
+
+Se basa en el ciclo PDCA:
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=2.5cm,
+    every node/.style={draw, circle, align=center}
+]
+
+\node (plan) {Plan};
+\node (do) [right of=plan] {Do};
+\node (check) [below of=do] {Check};
+\node (act) [left of=check] {Act};
+
+\draw[->] (plan) -- (do);
+\draw[->] (do) -- (check);
+\draw[->] (check) -- (act);
+\draw[->] (act) -- (plan);
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Ejemplo de Mejora Continua}
+En un proceso de soporte técnico:
+
+\begin{itemize}
+    \item Tiempo inicial: 48 horas
+    \item Implementación de sistema de tickets: 36 horas
+    \item Estandarización de respuestas: 24 horas
+    \item Automatización con IA: 12 horas
+\end{itemize}
+
+Esto evidencia la evolución progresiva del proceso mediante mejoras iterativas.
+
+\section{Conclusión}
+La gestión de procesos organizacionales permite estructurar el funcionamiento empresarial de manera eficiente, integrada y orientada a resultados. La adecuada organización, segmentación y mejora continua de los procesos constituyen pilares fundamentales en la ingeniería de sistemas.
+
+Estos conceptos son esenciales para el modelamiento en BPMN, ya que facilitan la representación de flujos de trabajo, la identificación de actores y la optimización del desempeño organizacional.
+
+\end{document}
