@@ -1,0 +1,249 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, babel} % Agregamos shapes y babel
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+\geometry{margin=2.5cm}
+\setstretch{1.5}
+
+\title{\textbf{Modelamiento de Procesos con BPMN}\\
+\large Enfoque en Ingeniería de Sistemas}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Concepto de BPMN}
+
+\subsection{Definición}
+
+BPMN (Business Process Model and Notation) es un estándar internacional de modelamiento gráfico que permite representar procesos de negocio de forma clara, formal y comprensible tanto para usuarios técnicos como no técnicos.
+
+Desde una perspectiva académica, BPMN constituye una notación visual que describe la lógica de los procesos organizacionales mediante símbolos estandarizados que representan actividades, eventos, decisiones y flujos.
+
+\subsection{Aplicación en las organizaciones}
+
+El uso de BPMN en las organizaciones permite:
+
+\begin{itemize}
+    \item Documentar procesos empresariales
+    \item Analizar y mejorar flujos de trabajo
+    \item Facilitar la comunicación entre áreas de negocio y tecnología
+    \item Automatizar procesos mediante sistemas BPM
+\end{itemize}
+
+En el contexto de la ingeniería de sistemas, BPMN permite traducir procesos organizacionales en modelos estructurados susceptibles de implementación en software.
+
+\subsection{Importancia en el modelamiento de procesos}
+
+La relevancia de BPMN radica en:
+
+\begin{itemize}
+    \item Proporcionar un lenguaje común organizacional
+    \item Identificar ineficiencias y redundancias
+    \item Facilitar la estandarización de procesos
+    \item Servir como base para la automatización
+\end{itemize}
+
+Esto lo convierte en una herramienta clave en la transformación digital y la gestión por procesos.
+
+\section{Reglas generales para el modelamiento en BPMN}
+
+\subsection{Uso de pools}
+
+Un \textit{pool} representa un participante principal dentro del proceso, como una organización o sistema.
+
+Se utiliza cuando existen múltiples actores independientes o cuando se requiere modelar interacción entre entidades.
+
+\subsection{Uso de lanes}
+
+Los \textit{lanes} son subdivisiones dentro de un pool que representan roles, áreas o departamentos. Permiten organizar responsabilidades y visualizar quién ejecuta cada actividad.
+
+\subsection{Niveles de detalle}
+
+El modelamiento BPMN puede realizarse en distintos niveles:
+
+\begin{itemize}
+    \item Alto nivel: visión general del proceso
+    \item Nivel detallado: incluye reglas, decisiones y tareas específicas
+\end{itemize}
+
+\subsection{Orientación del diagrama}
+
+Los diagramas deben seguir una dirección lógica:
+
+\begin{itemize}
+    \item De izquierda a derecha
+    \item De arriba hacia abajo
+\end{itemize}
+
+\subsection{Buenas prácticas}
+
+\begin{itemize}
+    \item Claridad y simplicidad
+    \item Evitar cruces innecesarios
+    \item Uso de nombres descriptivos
+    \item Coherencia en el nivel de detalle
+    \item Evitar sobrecarga visual
+\end{itemize}
+
+\section{Elementos BPMN}
+
+\subsection{Conectores}
+
+\subsubsection{Flujo de secuencia}
+
+Representa el orden de ejecución de actividades dentro de un mismo proceso.
+
+\subsubsection{Flujo de mensaje}
+
+Indica comunicación entre diferentes participantes (pools).
+
+\subsubsection{Asociación}
+
+Relaciona elementos adicionales como datos o anotaciones sin afectar el flujo.
+
+\subsection{Actividades}
+
+Las actividades representan el trabajo dentro del proceso:
+
+\begin{itemize}
+    \item Actividad de usuario
+    \item Actividad manual
+    \item Script task
+    \item Service task
+    \item Send task
+    \item Receive task
+\end{itemize}
+
+\subsection{Subprocesos}
+
+\subsubsection{Subproceso embebido}
+
+Forma parte del proceso principal y simplifica la visualización.
+
+\subsubsection{Subproceso reutilizable}
+
+Es independiente y puede ser utilizado en múltiples procesos.
+
+\subsection{Eventos}
+
+\begin{itemize}
+    \item Evento de inicio
+    \item Evento intermedio
+    \item Evento de fin
+\end{itemize}
+
+\subsection{Compuertas (Gateways)}
+
+\begin{itemize}
+    \item Exclusiva (XOR)
+    \item Paralela (AND)
+    \item Inclusiva (OR)
+    \item Basada en eventos
+\end{itemize}
+
+\section{Caso práctico: Proceso de compra en línea}
+
+\subsection{Descripción del proceso}
+
+Se modela el proceso desde que un cliente realiza una compra hasta la entrega del producto.
+
+\subsection{Estructura organizacional}
+
+\begin{itemize}
+    \item Pool Cliente
+    \item Pool Empresa
+    \begin{itemize}
+        \item Ventas
+        \item Logística
+        \item Finanzas
+    \end{itemize}
+\end{itemize}
+
+\subsection{Diagrama del proceso}
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=1.8cm, 
+    every node/.style={draw, rectangle, rounded corners, align=center, minimum width=3cm}
+]
+
+% Nodos alineados verticalmente
+\node (start) {Inicio};
+\node (pedido) [below of=start] {Realizar pedido};
+\node (validar) [below of=pedido] {Validar datos};
+\node (decision1) [below of=validar, diamond, aspect=2, minimum width=2cm] {¿Datos válidos?};
+\node (pago) [below of=decision1, yshift=-0.5cm] {Procesar pago};
+\node (decision2) [below of=pago, diamond, aspect=2, minimum width=2cm] {¿Pago aprobado?};
+\node (paralelo) [below of=decision2, yshift=-0.5cm] {Procesos paralelos};
+\node (envio) [below of=paralelo] {Despachar producto};
+\node (fin) [below of=envio] {Fin};
+
+% Flechas
+\draw[->] (start) -- (pedido);
+\draw[->] (pedido) -- (validar);
+\draw[->] (validar) -- (decision1);
+\draw[->] (decision1) -- node[right]{Sí} (pago);
+\draw[->] (pago) -- (decision2);
+\draw[->] (decision2) -- node[right]{Sí} (paralelo);
+\draw[->] (paralelo) -- (envio);
+\draw[->] (envio) -- (fin);
+
+% Opcional: Caminos de salida para "No" (ejemplo)
+% \draw[->] (decision1) -- ++(-3,0) node[above]{No} |- (pedido);
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Flujo del proceso}
+
+El proceso incluye:
+
+\begin{enumerate}
+    \item Inicio con solicitud del cliente
+    \item Registro de datos
+    \item Validación automática
+    \item Evaluación mediante compuertas XOR
+    \item Procesamiento de pago
+    \item Ejecución paralela de tareas
+    \item Envío del producto
+    \item Finalización del proceso
+\end{enumerate}
+
+\subsection{Interpretación}
+
+El modelo evidencia:
+
+\begin{itemize}
+    \item Interacción entre actores mediante flujo de mensajes
+    \item Toma de decisiones con compuertas XOR
+    \item Ejecución simultánea con compuertas AND
+    \item Integración de diferentes tipos de actividades
+\end{itemize}
+
+\section{Conclusión}
+
+BPMN constituye una herramienta fundamental en la ingeniería de procesos y sistemas, ya que permite representar de manera estructurada y estandarizada los procesos organizacionales.
+
+Su correcta aplicación facilita la comprensión, análisis y mejora de los flujos de trabajo, además de servir como base para la automatización de procesos.
+
+El dominio de sus elementos —eventos, actividades, compuertas, conectores y subprocesos— permite construir modelos precisos que reflejan la realidad organizacional, contribuyendo significativamente al diseño de sistemas de información y a la optimización empresarial.
+
+\end{document}
+```
+
